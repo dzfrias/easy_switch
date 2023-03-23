@@ -4,7 +4,10 @@
 //! [switch!](switch) macro will test against expressions, not patterns. The API of this crate is
 //! tiny, with just a single item.
 //!
+//! Internally, `switch!` just expands to a bunch of if-else expressions!
+//!
 //! # Example
+//!
 //! ```
 //! use easy_switch::switch;
 //!
@@ -21,6 +24,7 @@
 //! ```
 //!
 //! # Multiple Conditions
+//!
 //! Multiple conditions can be chained together with a comma.
 //! ```
 //! use easy_switch::switch;
