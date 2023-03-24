@@ -1,5 +1,9 @@
 # easy_switch
 
+[![Build status](https://github.com/dzfrias/easy_switch/actions/workflows/ci.yml/badge.svg)](https://github.com/dzfrias/easy_switch/actions)
+[![Crates.io](https://img.shields.io/crates/v/easy_switch.svg)](https://crates.io/crates/easy_switch)
+[![Docs Status](https://docs.rs/easy_switch/badge.svg)](https://docs.rs/easy_switch/)
+
 A macro to emulate switch statements in C-style languages. Get rid of those long
 `if`/`else if` chains!
 
