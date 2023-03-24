@@ -15,11 +15,13 @@ jobs:
     name: test
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+        toolchain: [stable, nightly]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+      - name: Checkout nightly
+        run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
       - name: Install cargo-expand
         run: cargo install cargo-expand
       - name: Build easy_switch
