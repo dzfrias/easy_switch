@@ -1,11 +1,16 @@
 [package]
 name = "easy_switch"
 version = "0.1.0"
+authors = ["Diego Frias <styx5242@gmail.com>"]
+description = "A macro for traditional C-style switch statements"
+license = "MIT"
+categories = ["development-tools", "rust-patterns"]
+keywords = ["macro", "switch", "control-flow"]
+documentation = "https://docs.rs/easy_switch"
+homepage = "https://github.com/dzfrias/easy_switch"
+repository = "https://github.com/dzfrias/easy_switch"
+rust-version = "1.56.1"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
 
 [dev-dependencies]
 macrotest = "1.0.9"
