@@ -76,25 +76,25 @@
 macro_rules! switch {
     // Single case
     ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr$(,)?) => {
-        if $first == $input $(&& $($conditions)&&*)? { $execute }
+        if $input == $first $(&& $($conditions)&&*)? { $execute }
     };
 
     // Single case with else
     ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, _ => $execute_last:expr$(,)?) => {
-        if $first == $input $(&& $($conditions)&&*)? { $execute }
+        if $input == $first $(&& $($conditions)&&*)? { $execute }
         else { $execute_last }
     };
 
     // Multi-case
     ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, $($rest:expr$(, $($conditions_rest:expr),*)? => $exec:expr),+$(,)?) => {
-        if $first == $input $(&& $($conditions)&&*)? { $execute }
-        $(else if $rest == $input $(&& $($conditions_rest)&&*)? { $exec })*
+        if $input == $first $(&& $($conditions)&&*)? { $execute }
+        $(else if $input == $rest $(&& $($conditions_rest)&&*)? { $exec })*
     };
 
     // Multi-case with else
     ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, $($rest:expr$(, $($conditions_rest:expr),*)? => $exec:expr),+, _ => $execute_last:expr$(,)?) => {
-        if $first == $input $(&& $($conditions)&&*)? { $execute }
-        $(else if $rest == $input $(&& $($conditions_rest)&&*)? { $exec })*
+        if $input == $first $(&& $($conditions)&&*)? { $execute }
+        $(else if $input == $rest $(&& $($conditions_rest)&&*)? { $exec })*
         else { $execute_last }
     };
 }

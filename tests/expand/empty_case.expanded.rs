@@ -1,4 +1,4 @@
 use easy_switch::switch;
 fn main() {
-    if 1 == number { () } else { () }
+    if number == 1 { () } else { () }
 }

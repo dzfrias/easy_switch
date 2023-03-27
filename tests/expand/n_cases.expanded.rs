@@ -1,14 +1,14 @@
 use easy_switch::switch;
 fn main() {
-    if 1 == number {
+    if number == 1 {
         ()
-    } else if 2 == number {
+    } else if number == 2 {
         ()
-    } else if 3 == number {
+    } else if number == 3 {
         ()
-    } else if 4 == number {
+    } else if number == 4 {
         ()
-    } else if 5 == number {
+    } else if number == 5 {
         ()
     }
 }
