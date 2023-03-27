@@ -74,13 +74,72 @@
 /// assert!(matched);
 #[macro_export]
 macro_rules! switch {
-    ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, $($rest:expr$(, $($conditions_rest:expr),*)? => $exec:expr),*$(, _ => $execute_last:expr)?$(,)?) => {
+    // Single case
+    ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr$(,)?) => {
         if $first == $input $(&& $($conditions)&&*)? { $execute }
-        $(else if $rest == $input $(&& $($conditions_rest)&&*)? { $exec })*
-        $(else { $execute_last })?
     };
+
+    // Single case with else
     ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, _ => $execute_last:expr$(,)?) => {
         if $first == $input $(&& $($conditions)&&*)? { $execute }
         else { $execute_last }
+    };
+
+    // Multi-case
+    ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, $($rest:expr$(, $($conditions_rest:expr),*)? => $exec:expr),+$(,)?) => {
+        if $first == $input $(&& $($conditions)&&*)? { $execute }
+        $(else if $rest == $input $(&& $($conditions_rest)&&*)? { $exec })*
+    };
+
+    // Multi-case with else
+    ($input:expr; $first:expr$(, $($conditions:expr),*)? => $execute:expr, $($rest:expr$(, $($conditions_rest:expr),*)? => $exec:expr),+, _ => $execute_last:expr$(,)?) => {
+        if $first == $input $(&& $($conditions)&&*)? { $execute }
+        $(else if $rest == $input $(&& $($conditions_rest)&&*)? { $exec })*
+        else { $execute_last }
+    };
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn single_case() {
+        let x = 3;
+        switch! { x;
+            3 => (),
+        }
+    }
+
+    #[test]
+    fn single_case_with_else() {
+        let x = 3;
+        switch! { x;
+            3 => (),
+            _ => (),
+        }
+    }
+
+    #[test]
+    fn multi_case() {
+        let x = 3;
+        switch! { x;
+            3 => (),
+            3 => (),
+            3 => (),
+            3 => (),
+        }
+    }
+
+    #[test]
+    fn multi_case_with_else() {
+        let x = 3;
+        switch! { x;
+            3 => (),
+            3 => (),
+            3 => (),
+            3 => (),
+            _ => (),
+        }
     }
 }
