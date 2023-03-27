@@ -1,6 +1,6 @@
 [package]
 name = "easy_switch"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Diego Frias <styx5242@gmail.com>"]
 description = "A macro for traditional C-style switch statements"
 license = "MIT"
