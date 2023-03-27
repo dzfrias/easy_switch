@@ -9,6 +9,7 @@ keywords = ["macro", "switch", "control-flow"]
 documentation = "https://docs.rs/easy_switch"
 homepage = "https://github.com/dzfrias/easy_switch"
 repository = "https://github.com/dzfrias/easy_switch"
+readme = true
 rust-version = "1.56.1"
 edition = "2021"
 
