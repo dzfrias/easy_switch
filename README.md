@@ -7,7 +7,7 @@
 A macro to emulate switch statements in C-style languages. Get rid of those long
 `if`/`else if` chains!
 
-# Syntax
+## Syntax
 
 Use the `switch!` macro to get started! This will look like a `match` expression,
 but of course does no actual pattern matching.
@@ -42,7 +42,7 @@ assert_eq!(0, result);
 Check out [the docs](https://docs.rs/easy_switch) for more information on this
 macro.
 
-# License
+## License
 
 This crate is licensed under the
 [MIT](https://github.com/dzfrias/easy_switch/LICENSE) license.
